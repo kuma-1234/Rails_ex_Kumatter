@@ -9,11 +9,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
-    if @post.save
-      redirect_to new_post_path, notice:'つぶやきを作成しました！'
+    @post = Post.new(post_params)
+    if params[:back]
+      render :new
     else
-      redirect_to new_post_path, notice:'つぶやきに失敗しました。1~140字以内で入力してください。'
+      if @post.save
+        redirect_to new_post_path, notice:'つぶやきを作成しました！'
+      else
+        redirect_to new_post_path, notice: 'つぶやきに失敗しました。1~140字以内で入力してください。'
+      end
     end
   end
   
@@ -24,6 +28,15 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to  posts_path, notice: 'つぶやきを編集しました！'
+    else
+      redirect_to edit_post_path, notice: 'つぶやきに失敗しました。1~140字以内で入力してください'
+    end
   end
 
 
