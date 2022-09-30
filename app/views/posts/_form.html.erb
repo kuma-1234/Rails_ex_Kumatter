@@ -14,10 +14,15 @@
   <% end %>
 
   <div class="blog_content">
-    <%= form.label :つぶやき %>
+    <p><%= form.label :tweet, "つぶやき" %></p>
     <%= form.text_area :content%>
   </div>
 
+  <br>
+
   <%= form.submit  "投稿する" %>
 <% end %>
+
+<br>
+
 <%= link_to 'つぶやきの一覧へ戻る', posts_path %>
