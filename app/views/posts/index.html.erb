@@ -4,6 +4,7 @@
 <div class="table_content">
 <table>
   <tr>
+    <th>最終更新日</th>
     <th>つぶやき</th>
     <th>編集</th>
     <th>削除</th>
@@ -11,6 +12,7 @@
 
 <% @posts.each do |post| %>
   <tr>
+    <td><%= post.updated_at %></td>
     <td><%= post.content %></td>
     <td><%= link_to "編集", edit_post_path(post.id) %></td>
     <td><%= link_to '削除', post_path(post.id), method: :delete, data:{confirm:'本当に削除しても良いですか？'} %></td>
