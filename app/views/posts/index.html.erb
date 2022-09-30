@@ -1,15 +1,24 @@
-<h2>全てのツイート</h2>
+<h2>全てのつぶやき</h2>
+<p><%= notice %></p>
+
+<div class="table_content">
 <table>
   <tr>
-    <th>ツイート</th>
+    <th>つぶやき</th>
+    <th>編集</th>
+    <th>削除</th>
   </tr>
 
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.content %></td>
-    <td><%= link_to 'ツイートを確認する', post_path(blog.id) %></td>
-    <td><%= link_to "ツイートを編集する", edit_post_path(blog.id) %></td>
-    <td><%= link_to 'ツイートを削除する', post_path(blog.id), method: :delete, data:{confirm:'本当に削除しても良いですか？'} %></td>
+    <td><%= link_to "編集", edit_post_path(post.id) %></td>
+    <td><%= link_to '削除', post_path(post.id), method: :delete, data:{confirm:'本当に削除しても良いですか？'} %></td>
   </tr>
 <% end %>
 </table>
+</div>
+
+<br>
+
+<%= link_to '新規作成', new_post_path %>
