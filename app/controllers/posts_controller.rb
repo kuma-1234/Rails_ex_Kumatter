@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to new_post_path, notice:'つぶやきを作成しました！'
       else
-        redirect_to new_post_path, notice: 'つぶやきに失敗しました。1~140字以内で入力してください。'
+        render 'new'
       end
     end
   end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to  posts_path, notice: 'つぶやきを編集しました！'
     else
-      redirect_to edit_post_path, notice: 'つぶやきに失敗しました。1~140字以内で入力してください'
+      render 'edit'
     end
   end
 
