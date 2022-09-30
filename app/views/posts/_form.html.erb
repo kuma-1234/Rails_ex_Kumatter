@@ -1,0 +1,12 @@
+<p><%= notice %></p>
+
+<%= form_with(model: @post, local: true, url: new_or_edit ) do |form| %>
+
+  <div class="blog_content">
+    <%= form.label :つぶやき %>
+    <%= form.text_area :content%>
+  </div>
+
+  <%= form.submit  "投稿する" %>
+<% end %>
+<%= link_to 'つぶやきの一覧へ戻る', posts_path %>
