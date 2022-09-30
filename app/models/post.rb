@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-  validates :content, {presence: true, length: {maximum:140}}
+  validates :content, length:{in: 1..140}
 end
