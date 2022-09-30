@@ -1,12 +1,2 @@
 <h1>つぶやきの投稿</h1>
-<p><%= notice %></p>
-
-<%= form_with(model: @post, local: true) do |form| %>
-
-  <div class="blog_content">
-    <%= form.label :つぶやき %>
-    <%= form.text_area :content%>
-  </div>
-
-  <%= form.submit  "確認する"%>
-<% end %>
+<%= render 'form' %>
