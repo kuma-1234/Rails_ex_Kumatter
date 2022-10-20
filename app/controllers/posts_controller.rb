@@ -14,6 +14,7 @@ class PostsController < ApplicationController
       render :new
     else
       if @post.save
+      binding.pry
         redirect_to new_post_path, notice:'つぶやきを作成しました！'
       else
         render 'new'
